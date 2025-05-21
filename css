@@ -1,0 +1,127 @@
+/* Estilos Gerais do Corpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o rodapé fique na parte inferior */
+    margin: 0;
+    background-color: #e0f7fa; /* Um azul claro suave */
+    color: #333;
+    line-height: 1.6;
+}
+
+main {
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço disponível */
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #00796b; /* Um verde-azulado mais escuro */
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Container dos Flashcards */
+.flashcard-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cartões quebrem para a próxima linha */
+    justify-content: center;
+    gap: 25px; /* Espaço entre os flashcards */
+    padding: 20px 0;
+}
+
+/* Estilo Individual do Flashcard */
+.flashcard {
+    background-color: #ffffff;
+    border: 1px solid #b2dfdb; /* Borda suave */
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+    width: 320px; /* Largura fixa para os cartões */
+    height: 200px; /* Altura fixa para os cartões */
+    padding: 20px;
+    cursor: pointer;
+    perspective: 1000px; /* Para o efeito de virar 3D */
+    transition: transform 0.8s ease-in-out; /* Transição mais suave e com aceleração */
+    position: relative;
+    transform-style: preserve-3d; /* Mantém os filhos no espaço 3D */
+    display: flex; /* Usar flexbox para centralizar conteúdo */
+    flex-direction: column;
+    justify-content: space-between; /* Espaçamento entre categoria e conteúdo */
+    align-items: center;
+}
+
+/* Estilos para o conteúdo dentro do flashcard (pergunta/resposta) */
+.flashcard-content {
+    position: absolute;
+    width: calc(100% - 40px); /* Largura total menos o padding */
+    height: calc(100% - 40px); /* Altura total menos o padding */
+    left: 20px;
+    top: 20px;
+    text-align: center;
+    backface-visibility: hidden; /* Esconde a parte de trás do elemento quando não está virado */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.flashcard-question {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #333;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.flashcard-answer {
+    font-size: 1.3em;
+    color: #004d40; /* Verde escuro para a resposta */
+    font-weight: 600;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg); /* Começa rotacionado para ser a parte de trás */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.flashcard-category {
+    font-size: 0.9em;
+    color: #666;
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10; /* Garante que a categoria fique acima do conteúdo */
+}
+
+/* Classe para aplicar quando o flashcard é virado */
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #00796b; /* Mesma cor do título */
+    color: #fff;
+    margin-top: auto;
+    font-size: 0.9em;
+}
